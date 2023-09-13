@@ -31,12 +31,11 @@ def main(city):
   try:
    broswer.get(href) 
   except:
-     to_csv(list_all)
-     return 0
+    continue
   click()
   source=broswer.page_source
   data_get(source)
-
+  time.sleep(5)
   print(list_all)
   
  to_csv(list_all)
@@ -62,8 +61,8 @@ def to_csv(list_all):
  dic_all['weather']=value_weather
  dic_all['wind']=value_wind
  df=pd.DataFrame(dic_all)#df方法传入字典时其value必须是可迭代序列（如列表）
- df.to_csv('./desktop/yangjiang_wea.csv')
+ df.to_csv('./yangjiang_wea.csv')
   
-main('beijing')
+main('yangjiang')
 
 
